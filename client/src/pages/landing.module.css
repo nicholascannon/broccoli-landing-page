@@ -1,0 +1,16 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: inherit;
+}
+
+.main {
+    flex: 1;
+
+    /* ensure we don't squash main content on really small screens */
+    min-height: 320px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
