@@ -13,10 +13,10 @@ const LandingPageView = () => {
             <Header />
 
             <main className={styles.main}>
-                <section>
+                <section className={styles.content}>
                     <h1>A better way to enjoy every day.</h1>
                     <p>Lorem ipsum dolor sit amet.</p>
-                    <button>Request an invite!</button>
+                    <button>Request an invite</button>
                 </section>
             </main>
 
