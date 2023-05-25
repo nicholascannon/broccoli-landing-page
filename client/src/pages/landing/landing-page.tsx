@@ -3,7 +3,7 @@ import { Footer } from '../../components/footer';
 import { useShowModal } from '../../modal-engine/modal-engine';
 import { RequestInviteModal } from './modals/request-invite-modal';
 
-import styles from './landing.module.css';
+import styles from './landing-page.module.css';
 
 export const LandingPage = () => {
     const showModal = useShowModal();

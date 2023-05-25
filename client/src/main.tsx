@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ModalEngine } from './modal-engine/modal-engine';
-import { LandingPage } from './pages/landing/landing';
+import { LandingPage } from './pages/landing/landing-page';
 
 import './reset.css';
 import './index.css';
