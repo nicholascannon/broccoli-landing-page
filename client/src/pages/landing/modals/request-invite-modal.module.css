@@ -11,6 +11,7 @@
 .requestForm > input:not(:first-child) {
     margin-top: 0.5rem;
 }
-.requestForm > button[type='submit'] {
+
+.callToAction {
     margin-top: 2rem;
 }
