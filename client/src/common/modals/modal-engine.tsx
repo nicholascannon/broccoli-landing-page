@@ -1,8 +1,7 @@
 import { FunctionComponent, ReactNode, createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-
-import styles from './modal-engine.module.css';
 import { useOutsideClickObserver } from '../hooks/use-outside-click-observer';
+import { ModalOverlay } from './components/modal-overlay';
 
 export const ModalEngine = ({ children }: { children: ReactNode }) => {
     const [modals, setModals] = useState<ModalComponent[]>([]);
@@ -27,9 +26,9 @@ export const ModalEngine = ({ children }: { children: ReactNode }) => {
 
             {CurrentModal &&
                 createPortal(
-                    <div className={styles.overlay}>
+                    <ModalOverlay>
                         <CurrentModal closeModal={closeCurrentModal} />
-                    </div>,
+                    </ModalOverlay>,
                     document.getElementById(MODAL_PORTAL_ID) as HTMLElement
                 )}
         </ModalEngineContext.Provider>
