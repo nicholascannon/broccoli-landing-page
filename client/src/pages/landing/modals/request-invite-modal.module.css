@@ -1,0 +1,16 @@
+.content > h2 {
+    text-align: center;
+}
+
+.requestForm {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.requestForm > input:not(:first-child) {
+    margin-top: 0.5rem;
+}
+.requestForm > button[type='submit'] {
+    margin-top: 2rem;
+}
