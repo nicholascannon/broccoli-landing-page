@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useModalExitUX } from '../modal-engine/modal-engine';
+import { useModalExitUX } from '../modals/modal-engine';
 import styles from './generic-modal.module.css';
 
 export const GenericModalView = ({ children }: Props) => {
