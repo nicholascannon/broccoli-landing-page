@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GenericModalView } from '../../../../common/components/generic-modal-view';
+import { GenericModalView } from '../../../../common/modals/components/generic-modal-view';
 import { ModalComponent, useReplaceAndShowModal } from '../../../../common/modals/modal-engine';
 import { InviteSuccessModal } from './invite-success-modal';
 import { CONFIG } from '../../../../config';

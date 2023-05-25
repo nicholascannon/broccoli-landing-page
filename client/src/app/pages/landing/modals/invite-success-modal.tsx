@@ -1,4 +1,4 @@
-import { GenericModalView } from '../../../../common/components/generic-modal-view';
+import { GenericModalView } from '../../../../common/modals/components/generic-modal-view';
 import { ModalComponent } from '../../../../common/modals/modal-engine';
 
 import styles from './invite-success-modal.module.css';
