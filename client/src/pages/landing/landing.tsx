@@ -1,6 +1,6 @@
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
-import { useShowModal } from '../../modals/modal-engine';
+import { useShowModal } from '../../modal-engine/modal-engine';
 import { RequestInviteModal } from './modals/request-invite-modal';
 
 import styles from './landing.module.css';

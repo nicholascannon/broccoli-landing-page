@@ -1,5 +1,5 @@
 import { GenericModalView } from '../../../components/generic-modal-view';
-import { ModalComponent } from '../../../modals/modal-engine';
+import { ModalComponent } from '../../../modal-engine/modal-engine';
 
 import styles from './invite-success-modal.module.css';
 
