@@ -1,0 +1,12 @@
+.modal {
+    width: 100vw;
+    height: 80vh;
+    /* ensure we don't squash main content on really small screens */
+    min-height: 320px;
+
+    background-color: white;
+    border: 1px solid black;
+
+    margin: 0 1rem;
+    padding: 1rem;
+}
