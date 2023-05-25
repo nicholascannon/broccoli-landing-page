@@ -3,12 +3,12 @@ export const CONFIG: Config = (() => {
         case 'localhost':
         case '127.0.0.1':
             return {
-                API_HOST: 'https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com',
+                REQUEST_INVITE_ENDPOINT: 'https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com/prod/fake-auth',
             };
         // This is just an example of PROD config
         case 'broccoli.com':
             return {
-                API_HOST: 'https://api.broccoli.com',
+                REQUEST_INVITE_ENDPOINT: 'https://api.broccoli.com/api/request-invite',
             };
         default:
             throw new Error(`Invalid hostname: ${window.location.hostname}`);
@@ -16,5 +16,5 @@ export const CONFIG: Config = (() => {
 })();
 
 type Config = {
-    API_HOST: string;
+    REQUEST_INVITE_ENDPOINT: string;
 };

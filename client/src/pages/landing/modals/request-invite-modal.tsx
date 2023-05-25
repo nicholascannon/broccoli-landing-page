@@ -15,7 +15,7 @@ export const RequestInviteModal: ModalComponent = () => {
 
         // TODO: validation
 
-        fetch(`${CONFIG.API_HOST}/prod/fake-auth`, {
+        fetch(CONFIG.REQUEST_INVITE_ENDPOINT, {
             body: JSON.stringify({ name, email }),
             method: 'POST',
         })
