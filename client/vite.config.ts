@@ -8,7 +8,6 @@ export default defineConfig({
     publicDir: '../public',
     build: {
         outDir: '../dist',
-        copyPublicDir: true,
     },
     server: {
         port: 3000,
