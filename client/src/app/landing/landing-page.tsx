@@ -21,7 +21,7 @@ const LandingPageView = (props: ViewProps) => {
             <main className={styles.main}>
                 <section className={styles.content}>
                     <h1>A better way to enjoy every day.</h1>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <p>Be the first to know when we launch.</p>
 
                     <button onClick={props.callToAction}>Request an invite</button>
                 </section>

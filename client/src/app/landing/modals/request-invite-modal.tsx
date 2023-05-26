@@ -76,10 +76,9 @@ const RequestInviteModalView = (props: ViewProps) => {
                         readOnly={loading}
                     />
 
-                    <div className={styles.callToAction}>
-                        {/* TODO: replace span with SVG animation */}
-                        {loading ? <span>sending invite...</span> : <button type="submit">Request</button>}
-                    </div>
+                    <button type="submit" className={styles.callToAction} disabled={loading}>
+                        {loading ? 'Sending, please wait...' : 'Send'}
+                    </button>
                 </form>
             </div>
         </GenericModalView>

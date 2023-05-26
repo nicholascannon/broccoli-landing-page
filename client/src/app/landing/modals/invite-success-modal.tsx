@@ -8,7 +8,7 @@ export const InviteSuccessModal: ModalComponent = (props) => {
         <GenericModalView>
             <div className={styles.content}>
                 <h2>All done!</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, explicabo.</p>
+                <p>You will be one of the first to experience Broccoli &amp; Co. when we launch.</p>
                 <button onClick={props.closeModal}>ok</button>
             </div>
         </GenericModalView>
