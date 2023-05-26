@@ -1,3 +1,4 @@
+import '@fontsource-variable/open-sans';
 import './main.css';
 import './config';
 
