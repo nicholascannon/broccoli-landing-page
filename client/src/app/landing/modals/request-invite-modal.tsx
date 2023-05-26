@@ -3,6 +3,7 @@ import { GenericModalView } from '../../../common/modals/components/generic-moda
 import { ModalComponent, useReplaceAndShowModal } from '../../../common/modals/modal-engine';
 import { InviteSuccessModal } from './invite-success-modal';
 import { CONFIG } from '../../../config';
+import { Button } from '../../../common/components/button';
 
 import styles from './request-invite-modal.module.css';
 
@@ -76,9 +77,9 @@ const RequestInviteModalView = (props: ViewProps) => {
                         readOnly={loading}
                     />
 
-                    <button type="submit" className={styles.callToAction} disabled={loading}>
+                    <Button fullWidth type="submit" className={styles.callToAction} disabled={loading}>
                         {loading ? 'Sending, please wait...' : 'Send'}
-                    </button>
+                    </Button>
                 </form>
             </div>
         </GenericModalView>
