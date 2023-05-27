@@ -1,6 +1,6 @@
-import { Button } from '../../../common/components/button';
-import { GenericModalView } from '../../../common/modals/components/generic-modal-view';
-import { ModalComponent } from '../../../common/modals/modal-engine';
+import { Button } from '../../../../common/components/button';
+import { GenericModalView } from '../../../../common/modals/components/generic-modal-view';
+import { ModalComponent } from '../../../../common/modals/modal-engine';
 
 import styles from './invite-success-modal.module.css';
 
