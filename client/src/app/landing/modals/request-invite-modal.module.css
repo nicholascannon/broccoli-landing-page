@@ -15,3 +15,7 @@
 .callToAction {
     margin-top: 2rem;
 }
+
+.serverError {
+    color: red;
+}

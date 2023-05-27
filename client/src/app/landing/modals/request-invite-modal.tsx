@@ -10,6 +10,7 @@ import styles from './request-invite-modal.module.css';
 export const RequestInviteModal: ModalComponent = () => {
     const replaceAndShowModal = useReplaceAndShowModal();
     const [loading, setLoading] = useState<boolean>(false);
+    const [serverError, setServerError] = useState<string | undefined>(undefined);
 
     const onRequestInvite = (name: string, email: string, _confirmEmail: string) => {
         setLoading(true);
@@ -20,16 +21,31 @@ export const RequestInviteModal: ModalComponent = () => {
             body: JSON.stringify({ name, email }),
             method: 'POST',
         })
-            .then(() => replaceAndShowModal(InviteSuccessModal))
-            .catch(console.error) // TODO: handle error
+            .then(async (response) => {
+                if (response.ok === false) {
+                    if (response.status === 400) {
+                        const data = await response.json();
+                        setServerError(data.errorMessage || DEFAULT_ERROR_MESSAGE);
+                    } else {
+                        setServerError(DEFAULT_ERROR_MESSAGE);
+                    }
+
+                    return;
+                }
+
+                replaceAndShowModal(InviteSuccessModal);
+            })
+            .catch(() => setServerError(DEFAULT_ERROR_MESSAGE))
             .finally(() => setLoading(false));
     };
 
-    return <RequestInviteModalView onRequestInvite={onRequestInvite} loading={loading} />;
+    return <RequestInviteModalView onRequestInvite={onRequestInvite} loading={loading} serverError={serverError} />;
 };
 
+const DEFAULT_ERROR_MESSAGE = 'Unable to request invite. Please try again.';
+
 const RequestInviteModalView = (props: ViewProps) => {
-    const { onRequestInvite, loading } = props;
+    const { onRequestInvite, loading, serverError: error } = props;
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -81,6 +97,8 @@ const RequestInviteModalView = (props: ViewProps) => {
                         {loading ? 'Sending, please wait...' : 'Send'}
                     </Button>
                 </form>
+
+                {error && <span className={styles.serverError}>{error}</span>}
             </div>
         </GenericModalView>
     );
@@ -88,5 +106,6 @@ const RequestInviteModalView = (props: ViewProps) => {
 
 type ViewProps = {
     loading: boolean;
+    serverError?: string;
     onRequestInvite: (name: string, email: string, confirmEmail: string) => void;
 };
