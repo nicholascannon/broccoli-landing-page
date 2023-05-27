@@ -1,5 +1,5 @@
 .modal {
-    width: 100vw;
+    width: var(--modal-width);
 
     background-color: white;
     border: 1px solid black;

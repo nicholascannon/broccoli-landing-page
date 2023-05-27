@@ -1,6 +1,12 @@
 :root {
-    /* Sm screens */
+    /* X-sm screens */
     --padding-x: 1rem;
+    --modal-width: 100%;
+
+    /* Sm screens */
+    @media (min-width: 576px) {
+        --modal-width: 500px;
+    }
 
     /* Md screens */
     @media (min-width: 768px) {
