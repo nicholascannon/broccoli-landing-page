@@ -1,0 +1,14 @@
+.input {
+    width: 100%;
+}
+
+.errorHidden {
+    visibility: hidden;
+}
+.errorVisible {
+    visibility: visible;
+}
+.errorMessage {
+    color: red;
+    display: inline-block;
+}
