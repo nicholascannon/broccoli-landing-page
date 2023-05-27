@@ -1,7 +1,14 @@
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { useEffect } from 'react';
-import { MODAL_PORTAL_ID, ModalComponent, ModalEngine, useReplaceAndShowModal, useShowModal } from './modal-engine';
+import { useEffect, useRef } from 'react';
+import {
+    MODAL_PORTAL_ID,
+    ModalComponent,
+    ModalEngine,
+    useModalExitUX,
+    useReplaceAndShowModal,
+    useShowModal,
+} from './modal-engine';
 
 describe('ModalEngine', () => {
     beforeEach(() => {
@@ -121,5 +128,57 @@ describe('ModalEngine', () => {
         fireEvent.click(screen.getByTestId('second-modal-open'));
         expect(() => screen.getByTestId('first-modal')).toThrow();
         expect(screen.getByTestId('second-modal')).toBeInTheDocument();
+    });
+
+    describe('GIVEN a TestComponent that renders a modal with the useModalExitUX', () => {
+        const Modal = () => {
+            const modalRef = useRef(null);
+            useModalExitUX(modalRef);
+
+            return (
+                <div ref={modalRef} data-testid="modal">
+                    Modal
+                </div>
+            );
+        };
+
+        const TestComponent = () => {
+            const showModal = useShowModal();
+            useEffect(() => showModal(Modal), [showModal]);
+
+            return <div data-testid="page-content">Page content</div>;
+        };
+
+        test(`
+            WHEN the user hits the escape key while the modal is visible
+            THEN it should close the modal
+        `, () => {
+            render(
+                <ModalEngine>
+                    <TestComponent />
+                </ModalEngine>
+            );
+
+            fireEvent.keyDown(screen.getByTestId('modal'), { key: 'Escape', code: 'Escape' });
+
+            expect(() => screen.getByTestId('modal')).toThrow();
+        });
+
+        test(`
+            WHEN the user clicks outside the modal
+            THEN it should close the modal
+        `, () => {
+            render(
+                <ModalEngine>
+                    <TestComponent />
+                </ModalEngine>
+            );
+
+            expect(screen.getByTestId('modal')).toBeVisible();
+
+            fireEvent.mouseDown(document.body);
+
+            expect(() => screen.getByTestId('modal')).toThrow();
+        });
     });
 });
