@@ -7,6 +7,7 @@
 .main {
     flex: 1;
 
+    max-width: 860px;
     /* ensure we don't squash main content on really small screens */
     min-height: 320px;
 
@@ -15,6 +16,7 @@
     align-items: center;
 
     padding: 0 var(--padding-x);
+    margin: 0 auto;
 }
 
 .content {
@@ -23,4 +25,8 @@
 
 .content > *:not(:last-child) {
     margin-bottom: 1rem;
+}
+
+.content > h1 {
+    font-size: var(--heading-size);
 }
