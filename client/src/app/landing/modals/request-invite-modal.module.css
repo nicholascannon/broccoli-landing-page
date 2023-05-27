@@ -8,14 +8,6 @@
     margin: 2rem 0;
 }
 
-.requestForm > input:not(:first-child) {
-    margin-top: 0.5rem;
-}
-
 .callToAction {
     margin-top: 2rem;
-}
-
-.serverError {
-    color: red;
 }

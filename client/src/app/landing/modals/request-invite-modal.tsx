@@ -4,6 +4,8 @@ import { ModalComponent, useReplaceAndShowModal } from '../../../common/modals/m
 import { InviteSuccessModal } from './invite-success-modal';
 import { CONFIG } from '../../../config';
 import { Button } from '../../../common/components/button';
+import { isMinimumLength, isNotBlank, isValidEmail, mustMatch } from '../../../common/utils/validation';
+import { FormInput } from '../../../common/form/form-input';
 
 import styles from './request-invite-modal.module.css';
 
@@ -11,17 +13,36 @@ export const RequestInviteModal: ModalComponent = () => {
     const replaceAndShowModal = useReplaceAndShowModal();
     const [loading, setLoading] = useState<boolean>(false);
     const [serverError, setServerError] = useState<string | undefined>(undefined);
+    const [formErrors, setFormErrors] = useState<RequestFormErrors>({});
 
-    const onRequestInvite = (name: string, email: string, _confirmEmail: string) => {
+    const validateName = (name: string) => isNotBlank(name) || isMinimumLength(name, MIN_NAME_LENGTH);
+    const validateEmail = (email: string) => isNotBlank(email) || isValidEmail(email);
+    const validateConfirmEmail = (email: string, confirmEmail: string) =>
+        isNotBlank(confirmEmail) || mustMatch(email, confirmEmail, 'email');
+
+    const onRequestInvite = (name: string, email: string, confirmEmail: string) => {
+        const nameError = validateName(name);
+        const emailError = validateEmail(email);
+        const confirmEmailError = validateConfirmEmail(email, confirmEmail);
+
+        setFormErrors({
+            name: nameError,
+            email: emailError,
+            confirmEmail: confirmEmailError,
+        });
+
+        const formHasErrors = [nameError, emailError, confirmEmailError].some((error) => error !== undefined);
+        if (formHasErrors) {
+            return;
+        }
+
         setLoading(true);
-
-        // TODO: validation
-
         fetch(CONFIG.REQUEST_INVITE_ENDPOINT, {
             body: JSON.stringify({ name, email }),
             method: 'POST',
         })
             .then(async (response) => {
+                // TODO: extract error handling process from here
                 if (response.ok === false) {
                     if (response.status === 400) {
                         const data = await response.json();
@@ -39,13 +60,28 @@ export const RequestInviteModal: ModalComponent = () => {
             .finally(() => setLoading(false));
     };
 
-    return <RequestInviteModalView onRequestInvite={onRequestInvite} loading={loading} serverError={serverError} />;
+    return (
+        <RequestInviteModalView
+            loading={loading}
+            serverError={serverError}
+            formErrors={formErrors}
+            onRequestInvite={onRequestInvite}
+        />
+    );
 };
+
+type RequestFormErrors = {
+    name?: string;
+    email?: string;
+    confirmEmail?: string;
+};
+
+const MIN_NAME_LENGTH = 3;
 
 const DEFAULT_ERROR_MESSAGE = 'Unable to request invite. Please try again.';
 
 const RequestInviteModalView = (props: ViewProps) => {
-    const { onRequestInvite, loading, serverError: error } = props;
+    const { onRequestInvite, loading, serverError, formErrors } = props;
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -61,36 +97,44 @@ const RequestInviteModalView = (props: ViewProps) => {
             <div className={styles.content}>
                 <h2>Request an invite</h2>
 
-                <form className={styles.requestForm} onSubmit={onSubmit}>
-                    <input
+                <form className={styles.requestForm} onSubmit={onSubmit} noValidate>
+                    <FormInput
+                        className={styles.formInput}
                         type="text"
                         name="name"
                         id="name"
                         placeholder="Full name"
-                        required
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value.trim())}
+                        required
                         readOnly={loading}
+                        error={formErrors?.name}
                     />
-                    <input
+
+                    <FormInput
+                        className={styles.formInput}
                         type="email"
                         name="email"
                         id="email"
                         placeholder="Email"
-                        required
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value.trim())}
+                        required
                         readOnly={loading}
+                        error={formErrors?.email}
                     />
-                    <input
+
+                    <FormInput
+                        className={styles.formInput}
                         type="email"
                         name="confirm-email"
                         id="confirm-email"
                         placeholder="Confirm email"
-                        required
                         value={confirmEmail}
-                        onChange={(e) => setConfirmEmail(e.target.value)}
+                        onChange={(e) => setConfirmEmail(e.target.value.trim())}
+                        required
                         readOnly={loading}
+                        error={formErrors?.confirmEmail}
                     />
 
                     <Button fullWidth type="submit" className={styles.callToAction} disabled={loading}>
@@ -98,7 +142,7 @@ const RequestInviteModalView = (props: ViewProps) => {
                     </Button>
                 </form>
 
-                {error && <span className={styles.serverError}>{error}</span>}
+                {serverError && <span className={styles.errorMessage}>{serverError}</span>}
             </div>
         </GenericModalView>
     );
@@ -107,5 +151,6 @@ const RequestInviteModalView = (props: ViewProps) => {
 type ViewProps = {
     loading: boolean;
     serverError?: string;
+    formErrors?: RequestFormErrors;
     onRequestInvite: (name: string, email: string, confirmEmail: string) => void;
 };
