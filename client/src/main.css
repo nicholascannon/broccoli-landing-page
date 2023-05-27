@@ -13,21 +13,21 @@
     /* Sm screens */
     @media (min-width: 576px) {
         --padding-x: 1rem;
-        --modal-width: 500px;
+        --modal-width: 440px;
         --heading-size: 2rem;
     }
 
     /* Md screens */
     @media (min-width: 768px) {
         --padding-x: 2rem;
-        --modal-width: 500px;
+        --modal-width: 440px;
         --heading-size: 4rem;
     }
 
     /* Lg screens */
     @media (min-width: 992px) {
         --padding-x: 6rem;
-        --modal-width: 500px;
+        --modal-width: 440px;
         --heading-size: 4rem;
     }
 }
