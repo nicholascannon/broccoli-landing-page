@@ -14,7 +14,12 @@
     justify-content: center;
     align-items: center;
 
-
+    background-image: url(./assets/background.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* a fallback value */
+    background-color: var(--secondary-bg-colour);
 }
 
 .content {
