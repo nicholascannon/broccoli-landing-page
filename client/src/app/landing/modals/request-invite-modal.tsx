@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { GenericModalView } from '../../../common/modals/components/generic-modal-view';
 import { ModalComponent, useReplaceAndShowModal } from '../../../common/modals/modal-engine';
 import { InviteSuccessModal } from './invite-success-modal';
-import { CONFIG } from '../../../config';
 import { Button } from '../../../common/components/button';
 import { isMinimumLength, isNotBlank, isValidEmail, mustMatch } from '../../../common/utils/validation';
 import { FormInput } from '../../../common/form/form-input';
+import { RequestInviteError, requestInvite } from '../../../services/request-invite';
 
 import styles from './request-invite-modal.module.css';
 
@@ -15,50 +15,33 @@ export const RequestInviteModal: ModalComponent = () => {
     const [serverError, setServerError] = useState<string | undefined>(undefined);
     const [formErrors, setFormErrors] = useState<RequestFormErrors>({});
 
-    const validateName = (name: string) => isNotBlank(name) || isMinimumLength(name, MIN_NAME_LENGTH);
-    const validateEmail = (email: string) => isNotBlank(email) || isValidEmail(email);
-    const validateConfirmEmail = (email: string, confirmEmail: string) =>
-        isNotBlank(confirmEmail) || mustMatch(email, confirmEmail, 'email');
+    const onRequestInvite = useCallback(
+        (name: string, email: string, confirmEmail: string) => {
+            setServerError(undefined);
 
-    const onRequestInvite = (name: string, email: string, confirmEmail: string) => {
-        const nameError = validateName(name);
-        const emailError = validateEmail(email);
-        const confirmEmailError = validateConfirmEmail(email, confirmEmail);
+            const nameError = validateName(name);
+            const emailError = validateEmail(email);
+            const confirmEmailError = validateConfirmEmail(email, confirmEmail);
 
-        setFormErrors({
-            name: nameError,
-            email: emailError,
-            confirmEmail: confirmEmailError,
-        });
+            setFormErrors({
+                name: nameError,
+                email: emailError,
+                confirmEmail: confirmEmailError,
+            });
 
-        const formHasErrors = [nameError, emailError, confirmEmailError].some((error) => error !== undefined);
-        if (formHasErrors) {
-            return;
-        }
+            const formHasErrors = [nameError, emailError, confirmEmailError].some((error) => error !== undefined);
+            if (formHasErrors) {
+                return;
+            }
 
-        setLoading(true);
-        fetch(CONFIG.REQUEST_INVITE_ENDPOINT, {
-            body: JSON.stringify({ name, email }),
-            method: 'POST',
-        })
-            .then(async (response) => {
-                // TODO: extract error handling process from here
-                if (response.ok === false) {
-                    if (response.status === 400) {
-                        const data = await response.json();
-                        setServerError(data.errorMessage || DEFAULT_ERROR_MESSAGE);
-                    } else {
-                        setServerError(DEFAULT_ERROR_MESSAGE);
-                    }
-
-                    return;
-                }
-
-                replaceAndShowModal(InviteSuccessModal);
-            })
-            .catch(() => setServerError(DEFAULT_ERROR_MESSAGE))
-            .finally(() => setLoading(false));
-    };
+            setLoading(true);
+            requestInvite(name, email)
+                .then(() => replaceAndShowModal(InviteSuccessModal))
+                .catch((error: RequestInviteError) => setServerError(error.message))
+                .finally(() => setLoading(false));
+        },
+        [replaceAndShowModal]
+    );
 
     return (
         <RequestInviteModalView
@@ -76,9 +59,12 @@ type RequestFormErrors = {
     confirmEmail?: string;
 };
 
-const MIN_NAME_LENGTH = 3;
+const validateName = (name: string) => isNotBlank(name) || isMinimumLength(name, MIN_NAME_LENGTH);
+const validateEmail = (email: string) => isNotBlank(email) || isValidEmail(email);
+const validateConfirmEmail = (email: string, confirmEmail: string) =>
+    isNotBlank(confirmEmail) || mustMatch(email, confirmEmail, 'email');
 
-const DEFAULT_ERROR_MESSAGE = 'Unable to request invite. Please try again.';
+const MIN_NAME_LENGTH = 3;
 
 const RequestInviteModalView = (props: ViewProps) => {
     const { onRequestInvite, loading, serverError, formErrors } = props;
