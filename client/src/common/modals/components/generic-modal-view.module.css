@@ -1,8 +1,8 @@
 .modal {
     width: var(--modal-width);
 
-    background-color: white;
-    border: 1px solid black;
+    color: var(--secondary-text-colour);
+    background-color: var(--secondary-bg-colour);
 
     margin: 0 1rem;
     padding: 2rem;

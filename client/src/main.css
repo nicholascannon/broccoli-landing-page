@@ -1,4 +1,10 @@
 :root {
+    --bg-colour: #000;
+    --secondary-bg-colour: white;
+
+    --text-colour: #fff;
+    --secondary-text-colour: #000;
+
     /* X-sm screens */
     --padding-x: 1rem;
     --modal-width: 100%;
@@ -64,6 +70,8 @@ body {
     text-rendering: optimizeSpeed;
     line-height: 1.5;
     font-family: 'Open Sans Variable', sans-serif;
+    color: var(--text-colour);
+    background-color: var(--bg-colour);
 }
 
 /* A elements that don't have a class get default styles */
