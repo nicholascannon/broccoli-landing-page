@@ -1,3 +1,18 @@
+:root {
+    /* Sm screens */
+    --padding-x: 1rem;
+
+    /* Md screens */
+    @media (min-width: 768px) {
+        --padding-x: 2rem;
+    }
+
+    /* Lg screens */
+    @media (min-width: 992px) {
+        --padding-x: 6rem;
+    }
+}
+
 /* Box sizing rules */
 *,
 *::before,
