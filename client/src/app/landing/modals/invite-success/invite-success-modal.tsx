@@ -8,7 +8,11 @@ export const InviteSuccessModal: ModalComponent = (props) => {
     return (
         <GenericModalView>
             <div className={styles.content}>
-                <h2>All done!</h2>
+                <div>
+                    <h2>All done!</h2>
+                    <hr />
+                </div>
+
                 <p>You will be one of the first to experience Broccoli &amp; Co. when we launch.</p>
                 <Button fullWidth onClick={props.closeModal}>
                     ok

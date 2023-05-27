@@ -1,5 +1,15 @@
-.content > h2 {
+.content h2 {
     text-align: center;
+}
+
+.content hr {
+    width: 60px;
+    height: 2px;
+
+    background-color: var(--bg-colour);
+    margin-top: 1rem;
+
+    border: none;
 }
 
 .requestForm {
@@ -9,5 +19,5 @@
 }
 
 .callToAction {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }

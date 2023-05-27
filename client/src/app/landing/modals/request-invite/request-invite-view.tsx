@@ -20,7 +20,10 @@ export const RequestInviteModalView = (props: ViewProps) => {
     return (
         <GenericModalView>
             <div className={styles.content}>
-                <h2>Request an invite</h2>
+                <div>
+                    <h2>Request an invite</h2>
+                    <hr />
+                </div>
 
                 <form className={styles.requestForm} onSubmit={onSubmit} noValidate>
                     <FormInput
