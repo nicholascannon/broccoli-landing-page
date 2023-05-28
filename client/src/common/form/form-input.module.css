@@ -1,5 +1,7 @@
 .input {
     width: 100%;
+    border: 1px solid black;
+    padding: 0.5rem;
 }
 
 .errorHidden {
@@ -9,6 +11,8 @@
     visibility: visible;
 }
 .errorMessage {
-    color: red;
+    color: var(--error-text-colour);
     display: inline-block;
+    font-style: italic;
+    font-size: 0.8rem;
 }

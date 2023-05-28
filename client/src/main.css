@@ -4,6 +4,7 @@
 
     --text-colour: #fff;
     --secondary-text-colour: #000;
+    --error-text-colour: #da1212;
 
     /* X-sm screens */
     --padding-x: 1rem;

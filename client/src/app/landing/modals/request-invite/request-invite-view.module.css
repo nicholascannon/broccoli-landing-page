@@ -21,3 +21,8 @@
 .callToAction {
     margin-top: 1rem;
 }
+
+.serverError {
+    color: var(--error-text-colour);
+    font-style: italic;
+}

@@ -27,7 +27,6 @@ export const RequestInviteModalView = (props: ViewProps) => {
 
                 <form className={styles.requestForm} onSubmit={onSubmit} noValidate>
                     <FormInput
-                        className={styles.formInput}
                         type="text"
                         name="name"
                         id="name"
@@ -40,7 +39,6 @@ export const RequestInviteModalView = (props: ViewProps) => {
                     />
 
                     <FormInput
-                        className={styles.formInput}
                         type="email"
                         name="email"
                         id="email"
@@ -53,7 +51,6 @@ export const RequestInviteModalView = (props: ViewProps) => {
                     />
 
                     <FormInput
-                        className={styles.formInput}
                         type="email"
                         name="confirm-email"
                         id="confirm-email"
@@ -70,7 +67,7 @@ export const RequestInviteModalView = (props: ViewProps) => {
                     </Button>
                 </form>
 
-                {serverError && <span className={styles.errorMessage}>{serverError}</span>}
+                {serverError && <span className={styles.serverError}>{serverError}</span>}
             </div>
         </GenericModalView>
     );
