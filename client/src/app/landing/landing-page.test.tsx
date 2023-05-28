@@ -2,10 +2,12 @@
 import renderer from 'react-test-renderer';
 import { LandingPageView } from './landing-page';
 
-test(`
-    GIVEN LandingPageView component
-    THEN rendering it should match the snapshot
-`, () => {
-    const tree = renderer.create(<LandingPageView callToAction={() => {}} />).toJSON();
-    expect(tree).toMatchSnapshot();
+describe('LandingPageView', () => {
+    test(`
+        GIVEN LandingPageView component
+        THEN rendering it should match the snapshot
+    `, () => {
+        const tree = renderer.create(<LandingPageView callToAction={() => {}} />).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });

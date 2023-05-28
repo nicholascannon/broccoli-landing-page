@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`
-    GIVEN RequestInviteModalView component
-    WHEN loading is false and there are no errors
-    THEN rendering it should match the snapshot
- 1`] = `
+exports[`RequestInviteModalView 
+        GIVEN RequestInviteModalView component
+        WHEN loading is false and there are no errors
+        THEN rendering it should match the snapshot
+     1`] = `
 <div
   className="modal"
 >
@@ -96,11 +96,11 @@ exports[`
 </div>
 `;
 
-exports[`
-    GIVEN RequestInviteModalView component
-    WHEN loading is false and there is a server error
-    THEN rendering it should match the snapshot
- 1`] = `
+exports[`RequestInviteModalView 
+        GIVEN RequestInviteModalView component
+        WHEN loading is false and there is a server error
+        THEN rendering it should match the snapshot
+     1`] = `
 <div
   className="modal"
 >
@@ -197,11 +197,11 @@ exports[`
 </div>
 `;
 
-exports[`
-    GIVEN RequestInviteModalView component
-    WHEN loading is false and there is form errors
-    THEN rendering it should match the snapshot
- 1`] = `
+exports[`RequestInviteModalView 
+        GIVEN RequestInviteModalView component
+        WHEN loading is false and there is form errors
+        THEN rendering it should match the snapshot
+     1`] = `
 <div
   className="modal"
 >
@@ -299,11 +299,11 @@ exports[`
 </div>
 `;
 
-exports[`
-    GIVEN RequestInviteModalView component
-    WHEN loading is true and there are no errors
-    THEN rendering it should match the snapshot
- 1`] = `
+exports[`RequestInviteModalView 
+        GIVEN RequestInviteModalView component
+        WHEN loading is true and there are no errors
+        THEN rendering it should match the snapshot
+     1`] = `
 <div
   className="modal"
 >
