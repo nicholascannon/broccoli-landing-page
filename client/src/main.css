@@ -9,23 +9,29 @@
     --padding-x: 1rem;
     --modal-width: 100%;
     --heading-size: 2rem;
+}
 
-    /* Sm screens */
-    @media (min-width: 576px) {
+/* Sm screens */
+@media (min-width: 576px) {
+    :root {
         --padding-x: 1rem;
         --modal-width: 440px;
         --heading-size: 2rem;
     }
+}
 
-    /* Md screens */
-    @media (min-width: 768px) {
+/* Md screens */
+@media (min-width: 768px) {
+    :root {
         --padding-x: 2rem;
         --modal-width: 440px;
         --heading-size: 4rem;
     }
+}
 
-    /* Lg screens */
-    @media (min-width: 992px) {
+/* Lg screens */
+@media (min-width: 992px) {
+    :root {
         --padding-x: 6rem;
         --modal-width: 440px;
         --heading-size: 4rem;
