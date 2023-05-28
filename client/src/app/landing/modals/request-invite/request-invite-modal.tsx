@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { ModalComponent, useReplaceAndShowModal } from '../../../../common/modals/modal-engine';
 import { InviteSuccessModal } from '../invite-success/invite-success-modal';
-import { isMinimumLength, isNotBlank, isValidEmail, mustMatch } from '../../../../common/utils/validation';
+import { isMinimumLength, isNotBlank, isValidEmail, mustMatch } from '../../../../common/form/validation';
 import { RequestInviteError, requestInvite } from '../../../../services/request-invite';
 import { RequestInviteModalView } from './request-invite-view';
 
