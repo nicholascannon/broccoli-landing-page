@@ -2,6 +2,8 @@
 
 Landing page application that allows users to request and invitation to our services.
 
+![Site preview](./docs/site-preview.png)
+
 ## Project setup
 
 Run the following command to setup the project:
