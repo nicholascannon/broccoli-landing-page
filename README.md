@@ -20,10 +20,10 @@ npm start
 
 ## Running the tests
 
-To run the client unit tests, navigate to the `client/` directory and run:
+To run the client unit tests and snapshot tests, navigate to the `client/` directory and run:
 
 ```sh
-npm run test:unit
+npm run test
 ```
 
 To run the client end-to-end tests, navigate to the `client/` directory and run:

@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`
+    GIVEN LandingPageView component
+    THEN rendering it should match the snapshot
+ 1`] = `
+<div
+  className="layout"
+>
+  <header
+    className="header"
+  >
+    <span
+      className="title"
+    >
+      BROCOLI & CO.
+    </span>
+  </header>
+  <main
+    className="main"
+  >
+    <section
+      className="content"
+    >
+      <h1>
+        A better way to enjoy every day.
+      </h1>
+      <p>
+        Be the first to know when we launch.
+      </p>
+      <button
+        className="button undefined "
+        onClick={[Function]}
+      >
+        Request an invite
+      </button>
+    </section>
+  </main>
+  <footer
+    className="footer"
+  >
+    <p>
+      Made with ♥ in Melbourne.
+    </p>
+    <p>
+      © 2023 Broccoli & Co. All rights reserved.
+    </p>
+  </footer>
+</div>
+`;

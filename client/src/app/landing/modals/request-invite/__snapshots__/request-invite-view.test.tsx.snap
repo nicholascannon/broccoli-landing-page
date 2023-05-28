@@ -1,0 +1,396 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`
+    GIVEN RequestInviteModalView component
+    WHEN loading is false and there are no errors
+    THEN rendering it should match the snapshot
+ 1`] = `
+<div
+  className="modal"
+>
+  <div
+    className="content"
+  >
+    <div>
+      <h2>
+        Request an invite
+      </h2>
+      <hr
+        className="ruler ruler"
+      />
+    </div>
+    <form
+      className="requestForm"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div>
+        <input
+          className="input"
+          id="name"
+          name="name"
+          onChange={[Function]}
+          placeholder="Full name"
+          readOnly={false}
+          required={true}
+          type="text"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="email"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          readOnly={false}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="confirm-email"
+          name="confirm-email"
+          onChange={[Function]}
+          placeholder="Confirm email"
+          readOnly={false}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <button
+        className="button fullWidth callToAction"
+        disabled={false}
+        type="submit"
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`
+    GIVEN RequestInviteModalView component
+    WHEN loading is false and there is a server error
+    THEN rendering it should match the snapshot
+ 1`] = `
+<div
+  className="modal"
+>
+  <div
+    className="content"
+  >
+    <div>
+      <h2>
+        Request an invite
+      </h2>
+      <hr
+        className="ruler ruler"
+      />
+    </div>
+    <form
+      className="requestForm"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div>
+        <input
+          className="input"
+          id="name"
+          name="name"
+          onChange={[Function]}
+          placeholder="Full name"
+          readOnly={true}
+          required={true}
+          type="text"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="email"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          readOnly={true}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="confirm-email"
+          name="confirm-email"
+          onChange={[Function]}
+          placeholder="Confirm email"
+          readOnly={true}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <button
+        className="button fullWidth callToAction"
+        disabled={true}
+        type="submit"
+      >
+        Sending, please wait...
+      </button>
+    </form>
+    <span
+      className="serverError"
+    >
+      Error
+    </span>
+  </div>
+</div>
+`;
+
+exports[`
+    GIVEN RequestInviteModalView component
+    WHEN loading is false and there is form errors
+    THEN rendering it should match the snapshot
+ 1`] = `
+<div
+  className="modal"
+>
+  <div
+    className="content"
+  >
+    <div>
+      <h2>
+        Request an invite
+      </h2>
+      <hr
+        className="ruler ruler"
+      />
+    </div>
+    <form
+      className="requestForm"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div>
+        <input
+          className="input"
+          id="name"
+          name="name"
+          onChange={[Function]}
+          placeholder="Full name"
+          readOnly={true}
+          required={true}
+          type="text"
+          value=""
+        />
+        <div
+          className="errorVisible"
+        >
+          <span
+            className="errorMessage"
+          >
+            Error
+          </span>
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="email"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          readOnly={true}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorVisible"
+        >
+          <span
+            className="errorMessage"
+          >
+            Error
+          </span>
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="confirm-email"
+          name="confirm-email"
+          onChange={[Function]}
+          placeholder="Confirm email"
+          readOnly={true}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorVisible"
+        >
+          <span
+            className="errorMessage"
+          >
+            Error
+          </span>
+        </div>
+      </div>
+      <button
+        className="button fullWidth callToAction"
+        disabled={true}
+        type="submit"
+      >
+        Sending, please wait...
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`
+    GIVEN RequestInviteModalView component
+    WHEN loading is true and there are no errors
+    THEN rendering it should match the snapshot
+ 1`] = `
+<div
+  className="modal"
+>
+  <div
+    className="content"
+  >
+    <div>
+      <h2>
+        Request an invite
+      </h2>
+      <hr
+        className="ruler ruler"
+      />
+    </div>
+    <form
+      className="requestForm"
+      noValidate={true}
+      onSubmit={[Function]}
+    >
+      <div>
+        <input
+          className="input"
+          id="name"
+          name="name"
+          onChange={[Function]}
+          placeholder="Full name"
+          readOnly={true}
+          required={true}
+          type="text"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="email"
+          name="email"
+          onChange={[Function]}
+          placeholder="Email"
+          readOnly={true}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          className="input"
+          id="confirm-email"
+          name="confirm-email"
+          onChange={[Function]}
+          placeholder="Confirm email"
+          readOnly={true}
+          required={true}
+          type="email"
+          value=""
+        />
+        <div
+          className="errorHidden"
+        >
+          <span
+            className="errorMessage"
+          />
+        </div>
+      </div>
+      <button
+        className="button fullWidth callToAction"
+        disabled={true}
+        type="submit"
+      >
+        Sending, please wait...
+      </button>
+    </form>
+  </div>
+</div>
+`;

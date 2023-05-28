@@ -14,7 +14,7 @@ export const LandingPage = () => {
     return <LandingPageView callToAction={callToAction} />;
 };
 
-const LandingPageView = (props: ViewProps) => {
+export const LandingPageView = (props: ViewProps) => {
     return (
         <div className={styles.layout}>
             <Header />
