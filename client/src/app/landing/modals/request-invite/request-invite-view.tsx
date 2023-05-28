@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from '../../../../common/components/button';
-import { FormInput } from '../../../../common/form/form-input';
+import { FormInput } from '../../../../common/form/components/form-input';
 import { GenericModalView } from '../../../../common/modals/components/generic-modal-view';
 import { Ruler } from '../../../../common/components/ruler';
 
