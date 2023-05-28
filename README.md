@@ -23,10 +23,16 @@ npm start
 To run the client unit tests, navigate to the `client/` directory and run:
 
 ```sh
-npm run test
+npm run test:unit
 ```
 
-NOTE: You are _not_ required to setup any config or external dependencies.
+To run the client end-to-end tests, navigate to the `client/` directory and run:
+
+```sh
+npm run test:e2e
+```
+
+NOTE: You are _not_ required to setup any config or external dependencies to run these tests!
 
 ## Building for production
 

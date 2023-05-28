@@ -7,7 +7,7 @@ export const mountApp = () => {
     ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(<App />);
 };
 
-const App = () => {
+export const App = () => {
     return (
         <React.StrictMode>
             <ModalEngine>

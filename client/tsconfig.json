@@ -16,6 +16,6 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true
     },
-    "include": ["./src"],
+    "include": ["./src", "./e2e-tests"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
