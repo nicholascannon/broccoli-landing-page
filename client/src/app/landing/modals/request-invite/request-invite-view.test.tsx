@@ -26,7 +26,7 @@ test(`
     THEN rendering it should match the snapshot
 `, () => {
     const tree = renderer
-        .create(<RequestInviteModalView loading={true} onRequestInvite={() => {}} serverError="Error" />)
+        .create(<RequestInviteModalView loading={false} onRequestInvite={() => {}} serverError="Error" />)
         .toJSON();
     expect(tree).toMatchSnapshot();
 });
@@ -39,7 +39,7 @@ test(`
     const tree = renderer
         .create(
             <RequestInviteModalView
-                loading={true}
+                loading={false}
                 onRequestInvite={() => {}}
                 formErrors={{
                     name: 'Error',

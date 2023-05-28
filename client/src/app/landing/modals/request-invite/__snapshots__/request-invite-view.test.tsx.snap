@@ -127,7 +127,7 @@ exports[`
           name="name"
           onChange={[Function]}
           placeholder="Full name"
-          readOnly={true}
+          readOnly={false}
           required={true}
           type="text"
           value=""
@@ -147,7 +147,7 @@ exports[`
           name="email"
           onChange={[Function]}
           placeholder="Email"
-          readOnly={true}
+          readOnly={false}
           required={true}
           type="email"
           value=""
@@ -167,7 +167,7 @@ exports[`
           name="confirm-email"
           onChange={[Function]}
           placeholder="Confirm email"
-          readOnly={true}
+          readOnly={false}
           required={true}
           type="email"
           value=""
@@ -182,10 +182,10 @@ exports[`
       </div>
       <button
         className="button fullWidth callToAction"
-        disabled={true}
+        disabled={false}
         type="submit"
       >
-        Sending, please wait...
+        Send
       </button>
     </form>
     <span
@@ -228,7 +228,7 @@ exports[`
           name="name"
           onChange={[Function]}
           placeholder="Full name"
-          readOnly={true}
+          readOnly={false}
           required={true}
           type="text"
           value=""
@@ -250,7 +250,7 @@ exports[`
           name="email"
           onChange={[Function]}
           placeholder="Email"
-          readOnly={true}
+          readOnly={false}
           required={true}
           type="email"
           value=""
@@ -272,7 +272,7 @@ exports[`
           name="confirm-email"
           onChange={[Function]}
           placeholder="Confirm email"
-          readOnly={true}
+          readOnly={false}
           required={true}
           type="email"
           value=""
@@ -289,10 +289,10 @@ exports[`
       </div>
       <button
         className="button fullWidth callToAction"
-        disabled={true}
+        disabled={false}
         type="submit"
       >
-        Sending, please wait...
+        Send
       </button>
     </form>
   </div>
