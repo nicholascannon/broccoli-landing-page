@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '../../../../common/components/button';
 import { FormInput } from '../../../../common/form/form-input';
 import { GenericModalView } from '../../../../common/modals/components/generic-modal-view';
+import { Ruler } from '../../../../common/components/ruler';
 
 import styles from './request-invite-view.module.css';
 
@@ -22,7 +23,7 @@ export const RequestInviteModalView = (props: ViewProps) => {
             <div className={styles.content}>
                 <div>
                     <h2>Request an invite</h2>
-                    <hr />
+                    <Ruler className={styles.ruler} />
                 </div>
 
                 <form className={styles.requestForm} onSubmit={onSubmit} noValidate>
