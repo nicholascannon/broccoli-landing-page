@@ -45,3 +45,7 @@ Run the following command to build the client and bundle the assets:
 ```
 
 The built assets are located in the `./client/dist` directory.
+
+## Project requirements
+
+Please see the [project requirements](./docs/requirements.pdf) document.
