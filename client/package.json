@@ -1,7 +1,8 @@
 {
     "name": "broccoli-landing-app",
     "private": true,
-    "version": "0.0.1",
+    "author": "Nicholas Cannon",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "start": "vite",
