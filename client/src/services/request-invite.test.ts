@@ -1,7 +1,7 @@
 import { requestInvite } from './request-invite';
 
 describe('request-invite', () => {
-    global.fetch = jest.fn(() => Promise.resolve({ ok: true } as Response));
+    window.fetch = jest.fn(() => Promise.resolve({ ok: true } as Response));
 
     beforeEach(() => {
         (fetch as jest.Mock).mockClear();

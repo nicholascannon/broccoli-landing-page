@@ -31,7 +31,7 @@ describe('Landing page integration tests', () => {
         GIVEN the application component
         AND the request invite API
     `, () => {
-        global.fetch = jest.fn(() => Promise.resolve({ ok: true } as Response));
+        window.fetch = jest.fn(() => Promise.resolve({ ok: true } as Response));
 
         beforeEach(() => {
             (fetch as jest.Mock).mockClear();
@@ -80,7 +80,7 @@ describe('Landing page integration tests', () => {
             // Submit form
             await userEvent.click(screen.getByText('Send'));
 
-            expect(global.fetch).not.toHaveBeenCalled();
+            expect(window.fetch).not.toHaveBeenCalled();
             expect(screen.getAllByText('Field required.').length).toBe(3);
         });
     });
