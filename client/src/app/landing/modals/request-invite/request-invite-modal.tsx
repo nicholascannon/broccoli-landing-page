@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { ModalComponent, useReplaceAndShowModal } from '../../../../common/modals/modal-engine';
 import { InviteSuccessModal } from '../invite-success/invite-success-modal';
 import { isMinimumLength, isNotBlank, isValidEmail, mustMatch } from '../../../../common/form/validation';
@@ -11,33 +11,30 @@ export const RequestInviteModal: ModalComponent = () => {
     const [serverError, setServerError] = useState<string | undefined>(undefined);
     const [formErrors, setFormErrors] = useState<RequestFormErrors>({});
 
-    const onRequestInvite = useCallback(
-        (name: string, email: string, confirmEmail: string) => {
-            setServerError(undefined);
+    const onRequestInvite = (name: string, email: string, confirmEmail: string) => {
+        setServerError(undefined);
 
-            const nameError = validateName(name);
-            const emailError = validateEmail(email);
-            const confirmEmailError = validateConfirmEmail(email, confirmEmail);
+        const nameError = validateName(name);
+        const emailError = validateEmail(email);
+        const confirmEmailError = validateConfirmEmail(email, confirmEmail);
 
-            setFormErrors({
-                name: nameError,
-                email: emailError,
-                confirmEmail: confirmEmailError,
-            });
+        setFormErrors({
+            name: nameError,
+            email: emailError,
+            confirmEmail: confirmEmailError,
+        });
 
-            const formHasErrors = [nameError, emailError, confirmEmailError].some((error) => error !== undefined);
-            if (formHasErrors) {
-                return;
-            }
+        const formHasErrors = [nameError, emailError, confirmEmailError].some((error) => error !== undefined);
+        if (formHasErrors) {
+            return;
+        }
 
-            setLoading(true);
-            requestInvite(name, email)
-                .then(() => replaceAndShowModal(InviteSuccessModal))
-                .catch((error: RequestInviteError) => setServerError(error.message))
-                .finally(() => setLoading(false));
-        },
-        [replaceAndShowModal]
-    );
+        setLoading(true);
+        requestInvite(name, email)
+            .then(() => replaceAndShowModal(InviteSuccessModal))
+            .catch((error: RequestInviteError) => setServerError(error.message))
+            .finally(() => setLoading(false));
+    };
 
     return (
         <RequestInviteModalView
