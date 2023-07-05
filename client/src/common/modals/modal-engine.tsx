@@ -1,4 +1,13 @@
-import { Dispatch, FunctionComponent, ReactNode, createContext, useContext, useEffect, useReducer } from 'react';
+import {
+    Dispatch,
+    FunctionComponent,
+    ReactNode,
+    createContext,
+    useCallback,
+    useContext,
+    useEffect,
+    useReducer,
+} from 'react';
 import { createPortal } from 'react-dom';
 import { useOutsideClickObserver } from '../hooks/use-outside-click-observer';
 import { ModalOverlay } from './components/modal-overlay';
@@ -50,19 +59,19 @@ const ModalEngineContext = createContext<Dispatch<ModalAction>>(() => {
 
 export const useShowModal = (): QueueModalFunction => {
     const dispatch = useContext(ModalEngineContext);
-    return (modal) => dispatch({ type: 'SHOW', modal });
+    return useCallback((modal) => dispatch({ type: 'SHOW', modal }), [dispatch]);
 };
 
 export const useReplaceAndShowModal = (): QueueModalFunction => {
     const dispatch = useContext(ModalEngineContext);
-    return (modal) => dispatch({ type: 'REPLACE', modal });
+    return useCallback((modal) => dispatch({ type: 'REPLACE', modal }), [dispatch]);
 };
 
 export type QueueModalFunction = (modal: ModalComponent) => void;
 
 export const useCloseCurrentModal = () => {
     const dispatch = useContext(ModalEngineContext);
-    return () => dispatch({ type: 'CLOSE' });
+    return useCallback(() => dispatch({ type: 'CLOSE' }), [dispatch]);
 };
 
 /**
