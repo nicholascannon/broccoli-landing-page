@@ -58,3 +58,5 @@ const validateConfirmEmail = (email: string, confirmEmail: string) =>
     isNotBlank(confirmEmail) || mustMatch(email, confirmEmail, 'email');
 
 const MIN_NAME_LENGTH = 3;
+
+export default RequestInviteModal; // required for React.lazy :(

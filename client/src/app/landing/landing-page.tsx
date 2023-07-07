@@ -1,7 +1,7 @@
+import React from 'react';
 import { Header } from '../../common/components/header';
 import { Footer } from '../../common/components/footer';
 import { useShowModal } from '../../common/modals/modal-engine';
-import { RequestInviteModal } from './modals/request-invite/request-invite-modal';
 import { Button } from '../../common/components/button';
 
 import styles from './landing-page.module.css';
@@ -9,7 +9,10 @@ import styles from './landing-page.module.css';
 export const LandingPage = () => {
     const showModal = useShowModal();
 
-    const callToAction = () => showModal(RequestInviteModal);
+    const callToAction = () => {
+        const RequestInviteModal = React.lazy(() => import('./modals/request-invite/request-invite-modal'));
+        showModal(RequestInviteModal);
+    };
 
     return <LandingPageView callToAction={callToAction} />;
 };

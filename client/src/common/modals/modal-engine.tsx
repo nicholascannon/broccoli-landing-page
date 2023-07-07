@@ -2,6 +2,7 @@ import {
     Dispatch,
     FunctionComponent,
     ReactNode,
+    Suspense,
     createContext,
     useCallback,
     useContext,
@@ -23,7 +24,9 @@ export const ModalEngine = ({ children }: { children: ReactNode }) => {
             {CurrentModal &&
                 createPortal(
                     <ModalOverlay>
-                        <CurrentModal closeModal={() => dispatch({ type: 'CLOSE' })} />
+                        <Suspense fallback={<p>Loading modal...</p>}>
+                            <CurrentModal closeModal={() => dispatch({ type: 'CLOSE' })} />
+                        </Suspense>
                     </ModalOverlay>,
                     document.getElementById(MODAL_PORTAL_ID) as HTMLElement
                 )}
