@@ -6,11 +6,12 @@ import { Button } from '../../common/components/button';
 
 import styles from './landing-page.module.css';
 
+const RequestInviteModal = React.lazy(() => import('./modals/request-invite/request-invite-modal'));
+
 export const LandingPage = () => {
     const showModal = useShowModal();
 
     const callToAction = () => {
-        const RequestInviteModal = React.lazy(() => import('./modals/request-invite/request-invite-modal'));
         showModal(RequestInviteModal);
     };
 
