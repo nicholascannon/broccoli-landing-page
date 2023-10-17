@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "target": "ESNext",
-        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "target": "ES6",
+        "lib": ["DOM", "DOM.Iterable", "ES6"],
         "module": "ESNext",
         "esModuleInterop": true,
         "skipLibCheck": true,
