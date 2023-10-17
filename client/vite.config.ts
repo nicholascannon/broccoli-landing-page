@@ -8,7 +8,6 @@ export default defineConfig({
     publicDir: '../public',
     build: {
         outDir: '../dist',
-        target: 'es2015',
     },
     server: {
         port: 3000,
